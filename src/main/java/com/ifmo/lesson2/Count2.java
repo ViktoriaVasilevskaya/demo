@@ -15,17 +15,15 @@ public class Count2 {
     }
 
     public static int count2() {
-        int n = 0;
+        int k = 0;
         for (int i = 2; i < 50000; i++) {
             String str = Integer.toString(i);
             if(str.indexOf('2') != -1){
-                n++;
+                k++;
             }
-
-
 
         }
 
-        return n;
+        return k;
     }
 }
