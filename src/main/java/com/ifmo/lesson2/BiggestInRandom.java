@@ -28,6 +28,7 @@ public class BiggestInRandom {
     public static String largestDigit(int rnd) {
 
         int h = rnd / 100;
+
         int m = rnd / 10 % 10;
         int l = rnd % 10;
 
