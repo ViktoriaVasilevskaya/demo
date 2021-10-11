@@ -15,9 +15,8 @@ public class ClosestToTen {
     }
 
     public static float closestToTen(float m, float n) {
-        float x = 10 - m;
-        float y = 10 - n;
-        if (Math.abs(x) <= Math.abs(y)) {
+
+        if (Math.abs(10 - m) <= Math.abs(10 - n)) {
             return m;
         } else {
             return n;
