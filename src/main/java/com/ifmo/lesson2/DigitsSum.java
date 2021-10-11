@@ -10,18 +10,18 @@ public class DigitsSum {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        int n = scanner.nextInt();
+        int k = scanner.nextInt();
 
-        int digitSum = digitSum(n);
+        int digitSum = digitSum(k);
 
         System.out.println(digitSum);
     }
 
-    public static int digitSum(int n) {
+    public static int digitSum(int k) {
         int sum = 0;
-        while (n != 0) {
-            sum += (n % 10);
-            n /= 10;
+        while (k != 0) {
+            sum += (k % 10);
+            k /= 10;
         }
 
         return sum;
