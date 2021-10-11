@@ -10,9 +10,9 @@ public class Dividers {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        int n = scanner.nextInt();
-        for (int i = n; i > 0; i--) {
-            int x = n % i;
+        int k = scanner.nextInt();
+        for (int i = k; i > 0; i--) {
+            int x = k % i;
             if (x == 0) {
                 System.out.println(i + "");
             }
