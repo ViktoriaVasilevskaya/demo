@@ -24,7 +24,6 @@ public class BiggestInRandom {
 
         return random.nextInt(899) + 100;
     }
-
     public static String largestDigit(int rnd) {
 
         int h = rnd / 100;
@@ -41,7 +40,6 @@ public class BiggestInRandom {
         }else {
             max = l;
         }
-
 
         return "В числе " + rnd + " наибольшая цифра " + max + ".";
     }
