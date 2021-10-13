@@ -6,6 +6,11 @@ public class NonNegativeSequence {
     последовательности 90 85 80 75 70 65 60 ….
      */
     public static void main(String[] args) {
-        // TODO implement
+        int k = 90;
+        System.out.println(k);
+        while(k != 0){
+            k -= 5;
+            System.out.println(k);
+        }
     }
 }
