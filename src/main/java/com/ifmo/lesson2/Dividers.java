@@ -9,7 +9,7 @@ public class Dividers {
      */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
+//
         int k = scanner.nextInt();
         for (int i = k; i > 0; i--) {
             int x = k % i;
@@ -17,10 +17,7 @@ public class Dividers {
                 System.out.println(i + "");
             }
 
-
-
         }
-
 
     }
 }
