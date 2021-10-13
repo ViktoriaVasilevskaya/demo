@@ -1,5 +1,8 @@
 package com.ifmo.lesson2;
 
+import java.security.SecureRandom;
+import java.util.Random;
+
 public class WallClock {
     /*
     На некотором предприятии инженер Петров создал устройство, на табло которого
@@ -33,19 +36,28 @@ public class WallClock {
         int randomSecond = randomSecond();
 
         String remainingHours = remainingHours(randomSecond);
-
+        System.out.println(randomSecond);
         System.out.println(remainingHours);
     }
 
     public static int randomSecond() {
-        // TODO implement
-
-        return 0;
+        Random random = new Random ();
+        return random.nextInt(28800);
     }
 
     public static String remainingHours(int rndSecond) {
-        // TODO implement
-
-        return "Осталось менее часа";
+        if (rndSecond > 3600){
+            int h = rndSecond / 3600;
+            String str = Integer.toString(h);
+            if (h == 1) {
+                return "Остался " + str + " час";
+            }else if(h == 2 || h == 3 || h == 4){
+                return "Осталось " + str + " часа";
+            }else{
+                return "Осталось " + str + " часов";
+            }
+        }else{
+            return "Осталось менее часа";
+        }
     }
 }
