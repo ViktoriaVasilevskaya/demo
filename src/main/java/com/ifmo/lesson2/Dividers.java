@@ -11,7 +11,7 @@ public class Dividers {
         Scanner scanner = new Scanner(System.in);
 //
         int k = scanner.nextInt();
-        for (int i = k; i > 0; i--) {
+        for (int i = 1; i <= k; i++) {
             int x = k % i;
             if (x == 0) {
                 System.out.println(i + "");
