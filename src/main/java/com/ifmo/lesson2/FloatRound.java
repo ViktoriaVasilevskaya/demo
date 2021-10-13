@@ -6,7 +6,7 @@ public class FloatRound {
     Создайте программу, округляющую число n до ближайшего целого и выводящую результат на экран.
      */
     public static void main(String[] args) {
-        float n = 12.4F;
+        float n = 8.7F;
 
         float rounded = round(n);
 
@@ -14,8 +14,7 @@ public class FloatRound {
     }
 
     public static float round(float n) {
-        // TODO implement
-
-        return 0;
+        int round = Math.round(n);
+        return round;
     }
 }
