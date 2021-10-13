@@ -25,7 +25,9 @@ public class IntsOrdering {
     }
 
     public static String ordering(int a, int b, int c) {
-        // TODO implement
+
+
+
 
         return "Числа в переменных a, b и c: " + a + ", " + b + ", " + c + "\n" +
                 "Возрастающая последовательность: " + 0 + ", " + 0 + ", " + 0;
