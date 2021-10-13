@@ -7,7 +7,8 @@ public class Fibonacci {
      двух предыдущих.
      */
     public static void main(String[] args) {
-        int x = 1, y = 1, z = 0;
+        int x = 1, y = 1;
+        int z;
         System.out.println (x);
         System.out.println (y);
         for (int i = 3; i < 11; i++) {
@@ -17,5 +18,4 @@ public class Fibonacci {
             System.out.println(z + "");
         }
     }
-    //
 }
