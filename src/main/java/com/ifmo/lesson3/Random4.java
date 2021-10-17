@@ -12,7 +12,8 @@ public class Random4 {
     public static void main(String[] args) {
         int[] randomNumbers = randomNumbers();
         System.out.println(Arrays.toString(randomNumbers));
-        //System.out.println(isIncreasingSequence);
+        boolean k = isIncreasingSequence(randomNumbers);
+        System.out.println(k);
 
     }
 
@@ -26,14 +27,14 @@ public class Random4 {
     }
 
     public static boolean isIncreasingSequence(int[] randomNumbers) {
+        boolean k = true;
         for (int i = 0; i < 4; i++) {
-            if (randomNumbers[i] >= randomNumbers[i + 1]) {
-                System.out.println("Массив не возрастающий");
+            if (randomNumbers[i] >= randomNumbers[i+1]) {
+                k = false;
                 break;
-                if (randomNumbers[i] >= randomNumbers[i + 1]) {
-                    System.out.println("Массив не строго возрастающий");
-                }
+            }else{
+                k = true;
             }
-        }
-    } return false;
+        }return k;
+    }
 }
