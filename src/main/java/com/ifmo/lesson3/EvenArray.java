@@ -1,6 +1,5 @@
 package com.ifmo.lesson3;
 
-import java.util.Arrays;
 
 public class EvenArray {
     /*
@@ -12,8 +11,9 @@ public class EvenArray {
     public static void main(String[] args) {
         int[] evenArray = evenArray();
 
-        System.out.println(Arrays.toString(evenArray));
-
+        for (int i:evenArray) {
+            System.out.print(i + " ");
+        }
         for(int i: evenArray){
             System.out.println(i);
         }
