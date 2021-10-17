@@ -14,13 +14,12 @@ public class EvenArray {
         for (int i:evenArray) {
             System.out.print(i + " ");
         }
+        System.out.println(" ");
         for(int i: evenArray){
             System.out.println(i);
         }
-
     }
-
-    public static int[] evenArray() {
+   public static int[] evenArray() {
         int [] arr = new int [10];
         int i = 0;
         int b = 2;
