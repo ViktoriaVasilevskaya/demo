@@ -23,8 +23,16 @@ public class PrimeNumber {
     }
 
     public static boolean isPrime(int n) {
-        // TODO implement
+        boolean k = true;
+        for (int i = 2; i < Math.sqrt(n); i++) {
+            int r = n % i;
 
-        return false;
+            if (r == 0 && i != 1 && i != n) {
+                k = false;
+                break;
+            } else {
+                k = true;
+            }
+        } return k;
     }
 }
