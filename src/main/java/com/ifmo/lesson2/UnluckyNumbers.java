@@ -14,8 +14,15 @@ public class UnluckyNumbers {
     }
 
     public static int unluckyNumbersCount() {
-        // TODO implement
-
-        return 0;
+        int n = 0;
+        for (int i = 1; i <= 99999; i++) {
+            String str = Integer.toString(i);
+            String str_1 = "4";
+            String str_2 = "13";
+            if (str.contains(str_1) || str.contains(str_2) ) {
+                n++;
+            }
+        }
+        return n;
     }
 }
