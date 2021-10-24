@@ -35,8 +35,7 @@ public class Random12 {
             if (i > max){
                 max = i;
             }
-        }
-        return max;
+        } return max;
     }
 
     public static int lastIndexOf(int[] randomNumbers, int max) {
