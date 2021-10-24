@@ -28,7 +28,7 @@ public class Random4 {
 
     public static boolean isIncreasingSequence(int[] randomNumbers) {
         boolean n = true;
-        for (int i = 1; i < randomNumbers().length; i++) {
+        for (int i = 1; i <= randomNumbers().length; i++) {
             if (randomNumbers[i-1] >= randomNumbers[i]) {
                 n = false;
                 break;
