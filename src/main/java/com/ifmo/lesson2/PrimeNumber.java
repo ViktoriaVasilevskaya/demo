@@ -24,13 +24,16 @@ public class PrimeNumber {
 
     public static boolean isPrime(int n) {
         boolean k = true;
-        for (int i = 2; i < Math.sqrt(n); i++) {
-            int r = n % i;
 
-            if (r == 0 && i != 1 && i != n) {
+        if (n == 1){
+            return k = false;
+        }
+
+        for (int i = 2; i < Math.sqrt(n); i++) {
+            if (n % i == 0 && i != n){
                 k = false;
                 break;
-            } else {
+            } else{
                 k = true;
             }
         } return k;
