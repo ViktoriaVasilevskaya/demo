@@ -27,14 +27,14 @@ public class Random4 {
     }
 
     public static boolean isIncreasingSequence(int[] randomNumbers) {
-        boolean k = true;
+        boolean n = true;
         for (int i = 0; i < 4; i++) {
             if (randomNumbers[i] >= randomNumbers[i+1]) {
-                k = false;
+                n = false;
                 break;
             }else{
-                k = true;
+                n = true;
             }
-        }return k;
+        }return n;
     }
 }
