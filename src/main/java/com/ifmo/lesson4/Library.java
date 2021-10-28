@@ -84,8 +84,8 @@ public class Library {
 
                 if (shelf.getQuantity() == 0) {
                     shelves[i] = null;
+                    System.arraycopy(shelves, i + 1, shelves, i, shelves.length - 1);
                 }
-                System.arraycopy(shelves, i + 1, shelves, i, shelves.length - 1);
 
                 return min;
             }
