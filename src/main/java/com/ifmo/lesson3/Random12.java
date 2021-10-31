@@ -39,12 +39,12 @@ public class Random12 {
     }
 
     public static int lastIndexOf(int[] randomNumbers, int max) {
-        int n = 0;
+        int k = 0;
         for (int i = 0; i < randomNumbers.length; i++) {
             if(randomNumbers [i] == max){
-                return n = i;
+                return k = i;
             }
         }
-        return n;
+        return k;
     }
 }
