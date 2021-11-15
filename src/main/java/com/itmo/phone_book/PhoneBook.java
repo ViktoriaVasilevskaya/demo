@@ -42,6 +42,9 @@ public class PhoneBook {
                 case "add":
                     add(scanner);
                     break;
+                case "update":
+                    update(scanner, Integer.parseInt(commandArgs[1]));
+                    break;
                 case "quit":
                     System.out.println("Bye");
                     return;
@@ -60,6 +63,10 @@ public class PhoneBook {
         Contact savedContact = storage.save(newContact);
         System.out.println("Добавлен контакт:");
         System.out.println(savedContact);
+    }
+    private void update(Scanner scanner, int id){
+        //в терминал git commit -m "Update WIP"
+
     }
 
     private void fillContact(Scanner scanner, Contact newContact) {
