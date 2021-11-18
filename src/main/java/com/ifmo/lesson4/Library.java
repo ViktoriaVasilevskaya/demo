@@ -39,9 +39,9 @@ package com.ifmo.lesson4;
  */
 public class Library {
     private Shelf[] shelves;
+    private int size;
 
     public Library(int maxBookKinds) {
-        //Hashtable hashtable = new Hashtable(5);
         shelves = new Shelf[maxBookKinds];
     }
 
@@ -55,8 +55,9 @@ public class Library {
     public boolean put(Book book, int quantity) {
         for (int i = 0; i < shelves.length; i++) {
             Shelf shelf = shelves[i];
-            if (shelf == null) {
+            if (i <= size) {
                 shelves[i] = new Shelf(book, quantity);
+                size++;
                 return true;
             } else if (shelf.getBook().equals(book)) {
                 shelf.setQuantity(shelf.getQuantity() + quantity);
@@ -90,14 +91,6 @@ public class Library {
                 return min;
             }
         }
-
-        // 1. пройтись по элементам массива и найти нашу книгу (book)
-        // либо не найти.
-        // 1.1 если не нашли, то возвращаем 0
-        // 1.2 если нашли, то должны из Shelf.quantity вычесть нужное количество книг. Math.min(shelf.quantity, quantity)
-        // 1.2.1 если удалили все книги, то удалить Shelf из массива:
-        // shelves [i] = null
-        // 1.2.1.1 сдвигаем все элементы после удаленного на один влево с помощью System.arraycopy()
 
         return 0;
     }

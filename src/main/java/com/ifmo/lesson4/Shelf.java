@@ -1,6 +1,5 @@
 package com.ifmo.lesson4;
 
-import java.util.Objects;
 
 public class Shelf {
     private Book book;
