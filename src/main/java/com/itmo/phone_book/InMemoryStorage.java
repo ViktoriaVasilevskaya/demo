@@ -6,7 +6,7 @@ import java.util.List;
 public class InMemoryStorage implements Storage {
     private final List<Contact> contacts = new ArrayList<>();
     private int ids;
-
+//
     @Override
     public Contact save(Contact newContact) {
         if (newContact.getId() == 0) {

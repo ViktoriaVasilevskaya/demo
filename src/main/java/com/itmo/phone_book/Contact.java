@@ -53,7 +53,7 @@ public class Contact {
         setAddress(other.getAddress());
         setPhones(other.getPhones());
     }
-
+//
     @Override
     public String toString() {
         return "Contact{" +
