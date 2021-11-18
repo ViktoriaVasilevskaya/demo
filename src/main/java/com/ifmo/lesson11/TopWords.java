@@ -49,13 +49,7 @@ public class TopWords {
 
         Map<String, Integer> wordCount = new HashMap<>();
         for (String word : words) {
-            if (wordCount.containsKey(word)) {
-                Integer count = wordCount.get(word);
-                wordCount.put(word, count + 1);
-            } else {
-                wordCount.put(word, 1);
-            }
-//            wordCount.merge(word, 1, Integer :: sum);
+           wordCount.merge(word, 1, Integer :: sum);
         }
 
 
