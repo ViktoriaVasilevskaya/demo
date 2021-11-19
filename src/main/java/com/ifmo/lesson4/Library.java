@@ -75,7 +75,7 @@ public class Library {
      * @return Actual number of books taken.
      */
     public int take(Book book, int quantity) {
-        for (int i = 0; i < shelves.length; i++) {
+        for (int i = 0; i < size; i++) {
             Shelf shelf = shelves[i];
             if (shelf == null) {
                 return 0;
@@ -86,6 +86,7 @@ public class Library {
                 if (shelf.getQuantity() == 0) {
                     shelves[i] = null;
                     System.arraycopy(shelves, i + 1, shelves, i, shelves.length - 1);
+                    size--;
                 }
 
                 return min;
