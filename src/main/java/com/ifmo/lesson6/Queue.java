@@ -39,4 +39,5 @@ public interface Queue<T> {
      * @return Данные, которые будут удалены из очереди или {@code null}, если очередь пустая.
      */
     T take();
+    //
 }

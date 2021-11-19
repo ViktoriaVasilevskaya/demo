@@ -16,6 +16,7 @@ public interface List<T> extends Iterable<T> {
      * или {@code null}, если не найдено.
      */
     T get(int i);
+    //
 
     /**
      * Удаляет значение по индексу и возвращает

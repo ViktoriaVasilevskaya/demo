@@ -33,6 +33,7 @@ public interface Stack<T> {
      * @param value Добавляемые данные.
      */
     void push(T value);
+    //
 
     /**
      * Удаляет элемент из головы стека.

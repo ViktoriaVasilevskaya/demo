@@ -107,6 +107,7 @@ public class LinkedList<T> implements List<T>, Stack<T>, Queue<T> {
     public void push (T value) {
         this.add(value);
     }
+    //
 
     /** {@inheritDoc} */
     @Override

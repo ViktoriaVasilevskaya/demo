@@ -26,7 +26,7 @@ public class Main {
         stack.pop(); // "2"
         stack.pop(); // "1"
         stack.pop(); // null
-
+//
 
     }
 }
