@@ -55,7 +55,7 @@ public class Library {
     public boolean put(Book book, int quantity) {
         for (int i = 0; i < shelves.length; i++) {
             Shelf shelf = shelves[i];
-            if (i <= size) {
+            if (i >= size) {
                 shelves[i] = new Shelf(book, quantity);
                 size++;
                 return true;
