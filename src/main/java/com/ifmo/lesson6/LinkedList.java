@@ -77,9 +77,9 @@ public class LinkedList<T> implements List<T>, Stack<T>, Queue<T> {
     /** {@inheritDoc} */
     @Override
     public Iterator<T> iterator() {
-        Iterator iterator = new Iterator() {
+        Iterator <T> iterator = new Iterator<>() {
 
-            Item current = head;
+            Item <T> current = head;
             @Override
             public boolean hasNext() {
                 if (current != null){
@@ -88,13 +88,12 @@ public class LinkedList<T> implements List<T>, Stack<T>, Queue<T> {
                     return false;
                 }
             }
-
             @Override
-            public Object next() {
+            public T next() {
                 if(!this.hasNext()){
                     return null;
                 } else {
-                    Item current = this.current;
+                    Item <T> current = this.current;
                     this.current = current.next;
                     return current.value;
                 }
@@ -107,7 +106,6 @@ public class LinkedList<T> implements List<T>, Stack<T>, Queue<T> {
     public void push (T value) {
         this.add(value);
     }
-    //
 
     /** {@inheritDoc} */
     @Override
@@ -115,12 +113,12 @@ public class LinkedList<T> implements List<T>, Stack<T>, Queue<T> {
         if (head == null){
             return null;
         } else if (head.next == null){
-            Item current = head;
+            Item <T> current = head;
             head = null;
             return (T) current.value;
         } else {
-            Item current = head.next;
-            Item last = head;
+            Item <T> current = head.next;
+            Item <T> last = head;
             while (current.next !=null){
                 last = current;
                 current = current.next;

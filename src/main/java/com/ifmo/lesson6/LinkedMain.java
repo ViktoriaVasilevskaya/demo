@@ -1,13 +1,13 @@
 package com.ifmo.lesson6;
 
-import java.util.Iterator;
+//import java.util.Iterator;
 
-public class Main {
+public class LinkedMain {
     public static void main (String [] args){
 
-        List <Integer> list = new LinkedList<>();
+        List <Integer> list = new LinkedList <> ();
 
-       final Iterator<Integer> iterator = list.iterator();
+       //final Iterator<Integer> iterator = list.iterator();
 
         Stack <Integer> stack = (Stack) list;
         stack.push(1);
@@ -18,10 +18,10 @@ public class Main {
             System.out.println(o);
         }
 
-        while (iterator.hasNext()){
-            Integer next = iterator.next();
-            System.out.println(next);
-        }
+//        while (iterator.hasNext()){
+//            Integer next = iterator.next();
+//            System.out.println(next);
+//        }
         stack.pop(); // "3"
         stack.pop(); // "2"
         stack.pop(); // "1"
