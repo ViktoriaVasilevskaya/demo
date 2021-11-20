@@ -40,26 +40,30 @@ package com.ifmo.lesson4;
 public class Library {
     private Shelf[] shelves;
     private int size;
-
     public Library(int maxBookKinds) {
+        // TODO implement
+        // Возможно здесь следует сынициализировать массив.
         shelves = new Shelf[maxBookKinds];
     }
 
     /**
      * Add books to library.
      *
-     * @param book     Book to add.
+     * @param book Book to add.
      * @param quantity How many books to add.
      * @return {@code True} if book successfully added, {@code false} otherwise.
      */
+
     public boolean put(Book book, int quantity) {
+        // TODO implement
+
         for (int i = 0; i < shelves.length; i++) {
             Shelf shelf = shelves[i];
-            if (i >= size) {
+            if (i >= size){
                 shelves[i] = new Shelf(book, quantity);
                 size++;
                 return true;
-            } else if (shelf.getBook().equals(book)) {
+            } else if(shelf.getBook().equals(book)){
                 shelf.setQuantity(shelf.getQuantity() + quantity);
                 return true;
             }
@@ -67,32 +71,29 @@ public class Library {
         return false;
     }
 
+
     /**
      * Take books from library.
      *
-     * @param book     Book to take.
+     * @param book Book to take.
      * @param quantity How many books to take.
      * @return Actual number of books taken.
      */
     public int take(Book book, int quantity) {
+        // TODO implement
         for (int i = 0; i < size; i++) {
             Shelf shelf = shelves[i];
-            if (shelf == null) {
-                return 0;
-            } else if (shelf.getBook().equals(book)) {
-                int min = Math.min(shelf.getQuantity(), quantity);
-                shelf.setQuantity(shelf.getQuantity() - min);
-
-                if (shelf.getQuantity() == 0) {
-                    shelves[i] = null;
-                    System.arraycopy(shelves, i + 1, shelves, i, shelves.length - 1);
+            if(shelf.getBook().equals(book)){
+                int count = Math.min(shelf.getQuantity(), quantity);
+                shelf.setQuantity(shelf.getQuantity() - count);
+                if(count <= 0){
+                    // shelves[i] = null;
+                    System.arraycopy(shelves, i + 1, shelves, i, shelves.length - i - 1);
                     size--;
                 }
-
-                return min;
+                return count;
             }
         }
-
         return 0;
     }
 
