@@ -45,7 +45,7 @@ public class Library {
         // Возможно здесь следует сынициализировать массив.
         shelves = new Shelf[maxBookKinds];
     }
-
+//
     /**
      * Add books to library.
      *
