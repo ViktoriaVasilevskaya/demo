@@ -10,10 +10,10 @@ public class UnevenArray {
     public static void main(String[] args) {
         int[] unevenArray = unevenArray();
 
-        System.out.println (Arrays.toString(unevenArray));
+        //System.out.println (Arrays.toString(unevenArray));
 
-        for (int i = unevenArray.length; i >= 0 ; i--) {
-            System.out.print(unevenArray[i]);
+        for (int i = unevenArray.length-1; i >= 0 ; i--) {
+            System.out.print(unevenArray[i] + " ");
         }
     }
 
@@ -25,8 +25,8 @@ public class UnevenArray {
             }
         }
         int [] arr = new int [n];
+        int k = 0;
         for (int i = 1; i <= 99; i++) {
-            int k = 0;
             if (i % 2 != 0){
                 arr [k] = i;
                 k++;
