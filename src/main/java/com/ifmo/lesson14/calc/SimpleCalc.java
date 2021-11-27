@@ -24,8 +24,7 @@ import java.util.Scanner;
 public class SimpleCalc {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
-
+        HashMap<String, Integer> map = new HashMap<>();
 
         while (true) {
             System.out.println("Enter expression: ");
@@ -36,7 +35,7 @@ public class SimpleCalc {
                 break;
 
             try {
-                System.out.println("Answer is: " + calculate(line));
+                System.out.println("Answer is: " + calculate(line,map));
             }
             catch (CalcException e) {
                 System.err.println("Error occurred: ");
@@ -46,7 +45,7 @@ public class SimpleCalc {
         }
     }
 
-    static int calculate(String line) throws CalcException {
+    static int calculate(String line, HashMap<String, Integer> map) throws CalcException {
         if (!line.contains("+") && !line.contains("-") && !line.contains("="))
             throw new CalcException("Expression must contain '+' or '-' or '=': " + line);
 
@@ -57,25 +56,26 @@ public class SimpleCalc {
 
         OPERATOR operator = OPERATOR.parse(operands[1]);
 
-        Map <String, Integer> map = new HashMap<>();
-        int [] opp = new int[2];
+        int[] opp = new int[3];
 
         if (operator == OPERATOR.EQUALS) {
             String str = operands[0];
-            if(str.matches("[a-zA-Z]+")){
+            if (str.matches("[a-zA-Z]+")) {
                 map.put(str, parseOperand(operands[2]));
-            } else{
+            } else {
                 throw new CalcException("Wrong operand, must be only string: " + str);
             }
             return parseOperand(operands[2]);
-        } else{
-            for (int i = 0; i < 2; i++) {
-                if (map.containsKey(operands[i])) {
-                    opp[i] = map.get(operands[i]);
-                } else {
-                    opp[0] = parseOperand(operands[0]);
-                    opp[2] = parseOperand(operands[2]);
-                }
+        } else {
+            if (map.containsKey(operands[0])) {
+                opp[0] = map.get(operands[0]);
+            } else {
+                opp[0] = parseOperand(operands[0]);
+            }
+            if (map.containsKey(operands[2])) {
+                opp[2] = map.get(operands[2]);
+            } else {
+                opp[2] = parseOperand(operands[2]);
             }
         }
         return operator.apply(opp[0], opp[2]);

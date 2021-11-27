@@ -11,4 +11,5 @@ public class CalcException extends Exception {
     public CalcException(String message, Throwable cause) {
         super(message, cause);
     }
+    //
 }
