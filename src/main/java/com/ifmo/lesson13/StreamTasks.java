@@ -2,6 +2,7 @@ package com.ifmo.lesson13;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 import java.util.Random;
 
@@ -27,12 +28,13 @@ public class StreamTasks {
     }
 
     public static void main(String[] args) {
-        List<Person> people = generatePeople(100).collect(Collectors.toList());
+        List<Person> people = generatePeople(30).collect(Collectors.toList());
 
         List<String> countries = countriesSortedByTheirPopulationDescending(people.stream());
         String countryThatHasMostKids = countryThatHasMostKids(people.stream());
         Map<String, Long> populationByCountry = populationByCountry(people.stream());
 
+        //System.out.println(people);
         System.out.println(countries);
         System.out.println(countryThatHasMostKids);
         System.out.println(populationByCountry);
@@ -70,7 +72,9 @@ public class StreamTasks {
                 .entrySet().parallelStream()
                 .sorted((a1,a2) -> a2.getValue().compareTo(a1.getValue()))
                 .limit(1)
-                .toString();
+                .map(Map.Entry::getKey)
+                .findAny()
+                .orElse("Not found");
 
     }
 
@@ -83,20 +87,20 @@ public class StreamTasks {
                 .collect(toMap(Map.Entry::getKey, Map.Entry::getValue));
     }
 
+    private final static String [] NAMES = {"Ivan", "Kate", "Mark", "Alexey", "Veronica"};
+    private final static String [] COUNTRIES = {"Russia", "Italy", "UK"};
     // Метод генерирует случайных людей в ограниченном наборе стран.
     // number - число желаемых людей.
     public static Stream<Person> generatePeople(int number) {
-//        Random rand = new Random();
-//        int rnd = rand.nextInt(90) + 3;
-//
-//        String [] names = new String[number];
-//        int [] ages = new int [number];
-//        String [] countries = new String [number];
-//        Person [] persons = new Person[number];
-//        for(Person person: persons){
-//            int age =
-//        }
-        return Stream.of();
+        var rand = new Random();
+
+        return IntStream.range(0,number)
+                .boxed()
+                .map(i -> new Person(
+                        NAMES[rand.nextInt(NAMES.length)],
+                        rand.nextInt(75),
+                        COUNTRIES[rand.nextInt(COUNTRIES.length)]
+                ));
     }
 
     // Метод возвращает карту сгруппированных слов по их длине. Например, для
@@ -108,16 +112,24 @@ public class StreamTasks {
                         .parallel()
                         .collect(groupingBy(String :: length, Collectors.toSet()));
 
-
     }
 
     // Метод находит среднюю длину слов в списке.
     public static int averageWordLength(List<String> words) {
-        return words.stream()
-                .parallel()
+        int totalLen = words.stream()
                 .map(w -> w.length())
-                .reduce(0,(i1,i2) -> (i1 + i2) / words.size());
+                .reduce(0, (i1,i2) -> i1 + i2);
 
+//        int average = (int) words.stream()
+//                .mapToInt(w -> w.length())
+//                .average().orElse(0.0);
+//
+//        int av2 = words.stream()
+//                .map(w -> w.length())
+//                .collect(Collectors.averagingInt(i -> i))
+//                .intValue();
+
+        return totalLen / words.size();
     }
 
     // Метод находит самое длинное слово или слова, если таких несколько.
