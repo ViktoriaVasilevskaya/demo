@@ -55,7 +55,7 @@ public class Bank {
                     double new_srcAmount = getAmount(srcAccId) - amount;
                     double new_dstAmount = getAmount(dstAccId) + amount;
                     accMap.get(srcAccId).setAmount(new_srcAmount);
-                    accMap.get(dstAccId).setAmount(new_dstAmount);
+                    ChangeAmount(dstAccId, amount);
                 }else{
                     System.out.println("account has insufficient funds!");
                 }
