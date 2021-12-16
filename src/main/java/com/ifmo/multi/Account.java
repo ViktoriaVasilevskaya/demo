@@ -6,6 +6,10 @@ public class Account {
     private long userId;
     private boolean blocked;
 
+    public Account(long id) {
+        this.id = id;
+    }
+
     public long getId() {
         return id;
     }
