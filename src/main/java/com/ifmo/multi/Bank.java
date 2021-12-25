@@ -3,13 +3,20 @@ package com.ifmo.multi;
 
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
+import java.util.concurrent.atomic.AtomicLong;
 
 public class Bank {
     private ConcurrentMap<Long, Account> accMap = new ConcurrentHashMap<Long, Account>();
+    private final AtomicLong atomicLong = new AtomicLong(1);
 
 
-    public Account CreateAccount(long userId) {
-        return new Account(userId);
+    public Account CreateAccount() {
+        Account new_Acc = accMap.get(atomicLong.longValue());
+        if (new_Acc == null) {
+            new_Acc = new Account(1L, 100, atomicLong.getAndIncrement(), false);
+            accMap.put(new_Acc.getUserId(), new_Acc);
+        }
+        return new_Acc;
     }
 
     public double getAmount(long accId) {
@@ -50,17 +57,19 @@ public class Bank {
 
     public void transferMoney(long srcAccId, long dstAccId, double amount) {
         try {
-            if (!isAccounBlocked(srcAccId) && !isAccounBlocked(dstAccId)) {
-                if (getAmount(srcAccId) > amount) {
-                    double new_srcAmount = getAmount(srcAccId) - amount;
-                    double new_dstAmount = getAmount(dstAccId) + amount;
-                    accMap.get(srcAccId).setAmount(new_srcAmount);
-                    ChangeAmount(dstAccId, amount);
-                }else{
-                    System.out.println("account has insufficient funds!");
+            synchronized (accMap.get(srcAccId)) {
+                if (!isAccounBlocked(srcAccId) && !isAccounBlocked(dstAccId)) {
+                    if (getAmount(srcAccId) >= amount) {
+                        double new_srcAmount = getAmount(srcAccId) - amount;
+                        double new_dstAmount = getAmount(dstAccId) + amount;
+                        accMap.get(srcAccId).setAmount(new_srcAmount);
+                        ChangeAmount(dstAccId, amount);
+                    } else {
+                        System.out.println("account has insufficient funds!");
+                    }
+                } else {
+                    System.out.println("BLOCKED! transfer is not available!");
                 }
-            } else {
-                System.out.println("BLOCKED! transfer is not available!");
             }
 
         } catch (RuntimeException e) {
